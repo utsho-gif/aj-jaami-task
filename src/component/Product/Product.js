@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import ModalDetails from "../ModalDetails/ModalDetails";
 
-const Product = ({ product, setOpen }) => {
-  const [modalShow, setModalShow] = useState(false);
+const Product = ({ product, setOpen, setModalShow }) => {
   const { name, category, brand, size, price, image, id } = product;
   return (
     <div className="col-lg-4 col-sm-6 col-12">
@@ -17,15 +16,9 @@ const Product = ({ product, setOpen }) => {
             </ul>
           </Card.Text>
           <>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
+      <Button variant="primary" onClick={() => setModalShow(product)}>
         Details
       </Button>
-
-      <ModalDetails
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        product={product}
-      />
     </>
         </Card.Body>
       </Card>

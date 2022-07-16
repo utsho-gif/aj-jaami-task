@@ -3,7 +3,16 @@ import ModalDetails from "../../ModalDetails/ModalDetails";
 import Product from "../../Product/Product";
 
 const Products = () => {
+  
+  const [modalShow, setModalShow] = useState(false);
   const [products, setProducts] = useState([]);
+  const [open, setOpen] = useState(null);
+
+  const handleRemove = (id) => {
+    console.log(id);
+  }
+
+
   useEffect(() => {
     fetch("/product.json")
       .then((res) => res.json())
@@ -13,10 +22,14 @@ const Products = () => {
     <div className="container">
       <div className="row g-5 my-3">
         {products.map((product) => (
-          <Product key={product.id} product={product} ></Product>
+          <Product key={product.id} product={product} setOpen={setOpen} setModalShow={setModalShow}></Product>
         ))}
       </div>
-      <ModalDetails products={products}></ModalDetails>
+      <ModalDetails
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        handleremove={handleRemove}
+      />
     </div>
   );
 };
