@@ -3,7 +3,7 @@ import { Button, Modal } from "react-bootstrap";
 
 const ModalDetails = (props) => {
   const {name, category, brand, size, price, image, id} = props?.show;
-  const {handleRemove} = props;
+  const {handleRemoveProduct} = props;
   return (
     <Modal
       {...props}
@@ -33,7 +33,7 @@ const ModalDetails = (props) => {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
-        <Button onClick={() => handleRemove(id)} className="btn-dark btn-outline-danger">Delete</Button>
+        <Button onClick={() => handleRemoveProduct(id)} className="btn-dark btn-outline-danger">Delete</Button>
       </Modal.Footer>
     </Modal>
   );

@@ -3,7 +3,7 @@ import { Button, Card } from "react-bootstrap";
 import ModalDetails from "../ModalDetails/ModalDetails";
 
 const Product = ({ product, setOpen, setModalShow }) => {
-  const { name, category, brand, size, price, image, id } = product;
+  const { name, brand, image } = product;
   return (
     <div className="col-lg-4 col-sm-6 col-12">
       <Card style={{ width: "18rem" }}>
